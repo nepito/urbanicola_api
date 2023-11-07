@@ -5,3 +5,7 @@ src="https://github.com/nepito/world_cup_semis/blob/develop/img/logo.jpeg" align
 # Urbanícola API
 
 ## Step to use
+
+``` bash
+docker-compose up -d nies
+```
