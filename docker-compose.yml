@@ -8,4 +8,4 @@ services:
     ports:
       - "6969:80"
     volumes:
-      - $PWD:/workdir
+      - $PWD/tests/data:/app/data
