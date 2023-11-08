@@ -9,7 +9,8 @@ class Item(BaseModel):
     b: list[int]
     c: list[bool]
 
-item = Item(**{"a":[0], "b":[0], "c":[False]})
+
+item = Item(**{"a": [0], "b": [0], "c": [False]})
 expenses = pd.read_csv("./data/gastos.csv")
 f = open("./data/players.json")
 players = json.load(f)
