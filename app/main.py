@@ -5,15 +5,12 @@ from pydantic import BaseModel
 
 
 class Item(BaseModel):
-    a: list[int]
-    b: list[int]
-    c: list[bool]
+    name: list[str]
+    age: list[int]
+    client: list[bool]
 
 
-item = Item(**{"a": [0], "b": [0], "c": [False]})
 expenses = pd.read_csv("./data/gastos.csv")
-f = open("./data/players.json")
-players = json.load(f)
 
 app = FastAPI()
 
@@ -26,11 +23,6 @@ def dummy_request():
 @app.get("/make_add")
 def make_add():
     return {"add": 4 + 6}
-
-
-@app.get("/v1/players")
-def get_player():
-    return players["response"]
 
 
 @app.get("/v1/gastos")
