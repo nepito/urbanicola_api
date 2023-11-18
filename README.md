@@ -9,3 +9,4 @@ src="https://github.com/nepito/world_cup_semis/blob/develop/img/logo.jpeg" align
 ``` bash
 docker-compose up -d nies
 ```
+Aquí podrás ver la versión local http://localhost:6969/docs
