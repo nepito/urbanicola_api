@@ -1,10 +1,11 @@
+import datetime
 from fastapi import FastAPI
 import pandas as pd
 from pydantic import BaseModel
 
 
 class Gasto(BaseModel):
-    date: list[str]
+    date: list[datetime.date]
     mount: list[float]
     type: list[str]
     concept: list[str]
@@ -13,7 +14,7 @@ class Gasto(BaseModel):
     how_many: list[float]
     provider: list[str]
     factura: list[bool]
-    type_pay: list[str]
+    payment_type: list[str]
     bank_count: list[str]
     description: list[str]
 
