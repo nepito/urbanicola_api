@@ -19,7 +19,25 @@ class Gasto(BaseModel):
     description: list[str]
 
 
-app = FastAPI()
+description = """
+Urbanicola API 🦈
+"""
+
+
+app = FastAPI(
+    title="Urbanicola",
+    description=description,
+    summary="API about Urbanícola money.",
+    version="0.1.0",
+    contact={
+        "name": "NIES",
+        "url": "https://github.com/niesfutbol",
+        "email": "nepo@nies.futbol",
+    },
+    license_info={
+        "name": "AGPL-3.0 license",
+        "url": "https://github.com/nepito/urbanicola_api/blob/develop/LICENSE",
+    },)
 
 
 @app.post("/v1/spent")
