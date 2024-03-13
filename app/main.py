@@ -20,7 +20,7 @@ class Gasto(BaseModel):
 
 
 description = """
-Urbanicola API 🦈
+Urbanícola API 🦈
 """
 
 
