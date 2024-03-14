@@ -2,6 +2,7 @@ import datetime
 from fastapi import FastAPI
 import pandas as pd
 from pydantic import BaseModel
+import urbanicola_data as ud
 
 
 class Gasto(BaseModel):
@@ -37,7 +38,8 @@ app = FastAPI(
     license_info={
         "name": "AGPL-3.0 license",
         "url": "https://github.com/nepito/urbanicola_api/blob/develop/LICENSE",
-    },)
+    },
+)
 
 
 @app.post("/v1/spent")
@@ -48,3 +50,13 @@ def add_spent(spent: Gasto):
     new_df = pd.concat([test_data, df_row])
     new_df.to_csv(data_base, index=False)
     return spent.dict()
+
+
+@app.post("/v1/sales")
+def add_sales(sales: ud.Sales):
+    data_base = "./data/sales.csv"
+    test_data = pd.read_csv(data_base)
+    df_row = pd.DataFrame(sales.dict())
+    new_df = pd.concat([test_data, df_row])
+    new_df.to_csv(data_base, index=False)
+    return sales.dict()
