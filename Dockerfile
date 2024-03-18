@@ -1,5 +1,14 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
-COPY ./requirements.txt /app/requirements.txt
-COPY ./tests/data /app/data
-RUN pip install --no-cache-dir --upgrade --requirement /app/requirements.txt
-COPY ./app /app
+FROM python:3
+WORKDIR /workdir
+COPY . .
+RUN pip install --upgrade pip && pip install \
+    black \
+    fastapi \
+    flake8 \
+    mutmut \
+    mypy \
+    pylint \
+    pytest \
+    pytest-cov \
+    uvicorn
+RUN make install

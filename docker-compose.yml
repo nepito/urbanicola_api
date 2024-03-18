@@ -1,11 +1,18 @@
 version: "3.1"
 services:
-  nies:
+  develop:
     build:
       context: .
       dockerfile: Dockerfile
-    image: nepolin/urbanicola_api
+    image: nepolin/urbanicola_api:latest
+    command: bash
+    volumes:
+      - $PWD:/workdir
+      - $PWD/tests/data:/workdir/data
+  urbanicola_api:
+    image: nepolin/urbanicola_api:latest
+    entrypoint: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+    volumes:
+      - $PWD:/workdir
     ports:
       - "6969:80"
-    volumes:
-      - $PWD/tests/data:/app/data

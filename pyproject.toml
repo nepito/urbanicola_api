@@ -10,5 +10,9 @@ description-file = "README.md"
 home-page = "https://github.com/nepito/urbanicola_api"
 module = "app"
 requires = [
+	"fastapi",
+	"httpx",
+	"pandas",
+	"urbanicola-data",
 ]
 requires-python=">=3.9"
