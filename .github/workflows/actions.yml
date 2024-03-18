@@ -20,14 +20,6 @@ jobs:
       with:
         files: ./coverage.xml
         verbose: true
-    - name: Evalúa resistencia a mutaciones
-      run: docker run nepolin/urbanicola_api:latest make mutants
-    - name: Create/Update tag
-      uses: rickstaa/action-create-tag@v1.5.4
-      with:
-        tag: "latest"
-        message: "Latest release"
-        force_push_tag: true
     - name: Docker log-in
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
