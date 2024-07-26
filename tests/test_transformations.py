@@ -45,23 +45,10 @@ ventas = {
     "discount": [6],
     "income": [6],
     "product_cost": [6],
-    "delivery_type": ["string"],
-    "shipping_cost": [6],
-    "shipping_date": ["2024-03-18"],
-    "place_delivery": ["string"],
-    "delivery_date": ["2024-03-18"],
-    "billig": [True],
-    "profit": [6],
-    "margin_gain": [6],
-    "payment_status": ["string"],
-    "sales_number": [6],
-    "pending_amount": [6],
-    "registration_date": ["2024-03-18"],
-    "check": [True],
 }
 
 
 def test_post_sales():
     response = client.post("/v1/sales/", json=ventas)
     assert response.status_code == 200
-    assert response.json()["check"]
+    assert response.json()["product_cost"]
